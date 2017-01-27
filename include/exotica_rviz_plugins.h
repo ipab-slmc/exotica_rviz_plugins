@@ -17,12 +17,14 @@ class exotica_rviz_plugins : public rviz::Panel {
  protected Q_SLOTS:
   void planGrasp();
   void planPregrasp();
+  void planLift();
 
  protected:
   QVBoxLayout* vbox_;
 
   QPushButton* btnPlanGrasp_;
   QPushButton* btnPlanPregrasp_;
+  QPushButton* btnPlanLift_;
 
  private:
   ros::NodeHandle nh;
@@ -30,5 +32,7 @@ class exotica_rviz_plugins : public rviz::Panel {
       nh.serviceClient<std_srvs::Empty>("/plan_grasp");
   ros::ServiceClient srvPlanPregrasp_ =
       nh.serviceClient<std_srvs::Empty>("/plan_pregrasp");
+  ros::ServiceClient srvPlanLift_ =
+      nh.serviceClient<std_srvs::Empty>("/plan_lift");
 };
 }
