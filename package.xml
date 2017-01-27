@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>exotica_rviz_plugins</name>
+  <version>1.0.0</version>
+  <description>RViz Plugin adding buttons for use with EXotica.</description>
+
+  <maintainer email="wolfgang.merkt@ed.ac.uk">Wolfgang Merkt</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/wxmerkt/exotica_rviz_plugins</url>
+  <url type="bugtracker">https://github.com/wxmerkt/exotica_rviz_plugins/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rviz</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_srvs</run_depend>
+
+  <export>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>

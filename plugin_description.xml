@@ -1,0 +1,9 @@
+<library path="lib/libexotica_rviz_plugins">
+    <class name="exotica_rviz_plugins/exotica_rviz_plugins"
+           type="exotica_rviz_plugins::exotica_rviz_plugins"
+           base_class_type="rviz::Panel">
+        <description>
+            Control panel for EXOtica.
+        </description>
+    </class>
+</library>
