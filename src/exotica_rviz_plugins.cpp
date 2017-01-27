@@ -9,19 +9,23 @@ exotica_rviz_plugins::exotica_rviz_plugins(QWidget* parent)
   btnPlanPregrasp_ = new QPushButton(tr("Plan Pregrasp"));
   btnPlanGrasp_ = new QPushButton(tr("Plan Grasp"));
   btnPlanLift_ = new QPushButton(tr("Plan Lift"));
+  btnSoftStop_ = new QPushButton(tr("Soft E-Stop"));
 
   btnPlanPregrasp_->setSizePolicy(QSizePolicy::Expanding,
                                   QSizePolicy::Expanding);
   btnPlanGrasp_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   btnPlanLift_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+  btnSoftStop_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
   vbox_->addWidget(btnPlanPregrasp_);
   vbox_->addWidget(btnPlanGrasp_);
   vbox_->addWidget(btnPlanLift_);
+  vbox_->addWidget(btnSoftStop_);
 
   connect(btnPlanPregrasp_, SIGNAL(clicked()), this, SLOT(planPregrasp()));
   connect(btnPlanGrasp_, SIGNAL(clicked()), this, SLOT(planGrasp()));
   connect(btnPlanLift_, SIGNAL(clicked()), this, SLOT(planLift()));
+  connect(btnSoftStop_, SIGNAL(clicked()), this, SLOT(softStop()));
 
   setLayout(vbox_);
 }
@@ -39,6 +43,11 @@ void exotica_rviz_plugins::planPregrasp() {
 void exotica_rviz_plugins::planLift() {
   std_srvs::Empty msg;
   srvPlanLift_.call(msg);
+}
+
+void exotica_rviz_plugins::softStop() {
+  std_srvs::Empty msg;
+  srvSoftStop_.call(msg);
 }
 }
 

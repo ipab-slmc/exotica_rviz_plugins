@@ -18,6 +18,7 @@ class exotica_rviz_plugins : public rviz::Panel {
   void planGrasp();
   void planPregrasp();
   void planLift();
+  void softStop();
 
  protected:
   QVBoxLayout* vbox_;
@@ -25,6 +26,7 @@ class exotica_rviz_plugins : public rviz::Panel {
   QPushButton* btnPlanGrasp_;
   QPushButton* btnPlanPregrasp_;
   QPushButton* btnPlanLift_;
+  QPushButton* btnSoftStop_;
 
  private:
   ros::NodeHandle nh;
@@ -34,5 +36,7 @@ class exotica_rviz_plugins : public rviz::Panel {
       nh.serviceClient<std_srvs::Empty>("/plan_pregrasp");
   ros::ServiceClient srvPlanLift_ =
       nh.serviceClient<std_srvs::Empty>("/plan_lift");
+  ros::ServiceClient srvSoftStop_ =
+      nh.serviceClient<std_srvs::Empty>("/stop_trajectory_execution");
 };
 }
